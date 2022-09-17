@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="pelanggan_view_tree" model="ir.ui.view">
+        <field name="name">pelanggan_view_tree</field>
+        <field name="model">tokokipin.pelanggan</field>
+        <field name="arch" type="xml">
+            <tree string="pelanggan_tree">
+                <field name="kode_pelanggan"/>
+                <field name="nama_pelanggan"/>
+                <field name="alamat"/>
+                <field name="no_tlpn"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="pelanggan_view_form" model="ir.ui.view">
+        <field name="name">pelanggan_view_form</field>
+        <field name="model">tokokipin.pelanggan</field>
+        <field name="arch" type="xml">
+            <form string="pelanggan_form">
+                <sheet>
+                    <group>
+                        <field name="nama_pelanggan"/>
+                        <field name="kode_pelanggan"/>
+                        <field name="nama_pelanggan"/>
+                        <field name="alamat"/>
+                        <field name="no_tlpn"/>
+                    </group>
+                    <notebook colspan='8'>
+                        <page name="name" string="Penyewa">
+                            <field name="pelanggan_ids">
+                                <tree string="Penyewa" create="true" delete="true" edit="true" editable="bottom">
+<!--                                    <field name="kode_pelanggan"/>-->
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+   <record id="pelanggan_action" model="ir.actions.act_window">
+       <field name="name">Pelanggan</field>
+       <field name="type">ir.actions.act_window</field>
+       <field name="res_model">tokokipin.pelanggan</field>
+       <field name="view_mode">tree,form</field>
+   </record>
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="pelanggan_categ"
+              name="Pelanggan"
+              parent="tokokipin_root"
+              action="pelanggan_action"
+              sequence="40"/>
+</odoo>

@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tokokipin_barang,tokokipin.barang,model_tokokipin_barang,base.group_user,1,1,1,1
+access_tokokipin_produk,tokokipin.produk,model_tokokipin_produk,base.group_user,1,1,1,1
+access_tokokipin_penyewaan,tokokipin.penyewaan,model_tokokipin_penyewaan,base.group_user,1,1,1,1
+access_tokokipin_pengembalian,tokokipin.pengembalian,model_tokokipin_pengembalian,base.group_user,1,1,1,1
+access_tokokipin_penyewaandetail,tokokipin.penyewaandetail,model_tokokipin_penyewaandetail,base.group_user,1,1,1,1
+access_tokokipin_pelanggan,tokokipin.pelanggan,model_tokokipin_pelanggan,base.group_user,1,1,1,1
+access_tokokipin_selesaipakai,tokokipin.selesaipakai,model_tokokipin_selesaipakai,base.group_user,1,1,1,1

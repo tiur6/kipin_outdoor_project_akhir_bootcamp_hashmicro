@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pengemablain_view_tree" model="ir.ui.view">
+        <field name="name">pengembalian_view_tree</field>
+        <field name="model">tokokipin.pengembalian</field>
+        <field name="arch" type="xml">
+            <tree string="pengembalian_tree">
+                <field name="nama_pembeli"/>
+                <field name="tgl_penyewaan"/>
+                <field name="tgl_pengembalian"/>
+<!--                <field name="jml_hari"/>-->
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+    <record id="pengembalian_view_form" model="ir.ui.view">
+        <field name="name">pengembalian_view_form</field>
+        <field name="model">tokokipin.pengembalian</field>
+        <field name="arch" type="xml">
+            <form string="_form">
+                <sheet>
+                    <group>
+                        <field name="nama_pembeli"/>
+                        <field name="tgl_penyewaan"/>
+                        <field name="tgl_pengembalian"/>
+                        <field name="jml_hari"/>
+                        <field name="terlambat"/>
+                        <field name="denda"/>
+                        <field name="status"/>
+                        <field name="total_bayar"/>
+                    </group>
+                    <notebook colspan='8'>
+                        <page name="name" string="No Nota Pembayaran || Daftar Beli">
+                            <field name="no_notaids" >
+                                <tree editable='bottom'>
+<!--                                    <field name="barang_ids"/>-->
+                                    <field name="kode_barang_ids"/>
+                                    <field name="nama_barangpenjualan"/>
+                                    <field name="banyak_barang"/>
+                                    <field name="subtotal" sum ="Total"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="pengembalian_action" model="ir.actions.act_window">
+        <field name="name">Pengembalian</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tokokipin.pengembalian</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="pengembalian_categ"
+              name="Pengembalian"
+              parent="tokokipin_root"
+              action="pengembalian_action"
+              sequence="30"/>
+</odoo>

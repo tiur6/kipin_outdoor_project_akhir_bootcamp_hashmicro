@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+    <menuitem id="tokokipin_root"
+              name="Kipin Outdoor"
+              sequence="10"/>
+
+    <menuitem id="barang_root"
+              name="Barang"
+              parent="tokokipin_root"
+              sequence="10"/>
+    <menuitem id="produk_root"
+              name="Produk"
+              parent="tokokipin_root"
+              sequence="10"/>
+    <menuitem id="pennyewaan_root"
+              name="Penyewaan"
+              parent="tokokipin_root"
+              sequence="20"/>
+    <menuitem id="pengembalian_root"
+              name="Pengembalian"
+              parent="tokokipin_root"
+              sequence="20"/>
+    <menuitem id="pelanggan_root"
+              name="Pelanggan"
+              parent="tokokipin_root"
+              sequence="30"/>
+
+
+
+</odoo>

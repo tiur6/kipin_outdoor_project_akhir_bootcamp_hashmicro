@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="barang_view_tree" model="ir.ui.view">
+        <field name="name">barang_view_tree</field>
+        <field name="model">tokokipin.barang</field>
+        <field name="arch" type="xml">
+            <tree string="barang_tree">
+                <field name="kode_barang"/>
+                <field name="kode_produk"/>
+                <field name="keterangan_produk"/>
+                <field name="nama_barang"/>
+                <field name="harga_beli"/>
+                <field name="harga_jual"/>
+                <field name="stok"/>
+            </tree>
+        </field>
+    </record>
+    <record id="barang_view_form" model="ir.ui.view">
+        <field name="name">barang_view_form</field>
+        <field name="model">tokokipin.barang</field>
+        <field name="arch" type="xml">
+            <form string="barang_form">
+                <sheet>
+                    <group>
+                        <field name="kode_barang"/>
+                        <field name="kode_produk"/>
+                        <field name="keterangan_produk"/>
+                         <field name="nama_barang"/>
+                         <field name="harga_beli"/>
+                         <field name="harga_jual"/>
+                         <field name="stok"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="barang_action" model="ir.actions.act_window">
+        <field name="name">Barang</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tokokipin.barang</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="barang_categ"
+              name="Barang"
+              parent="tokokipin_root"
+              action="barang_action"
+              sequence="10"/>
+</odoo>

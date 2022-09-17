@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="produk_view_tree" model="ir.ui.view">
+        <field name="name">produk_view_tree</field>
+        <field name="model">tokokipin.produk</field>
+        <field name="arch" type="xml">
+            <tree string="produk_tree">
+                <field name="jenisbarang_id"/>
+                <field name="nama_produk"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="produk_view_form" model="ir.ui.view">
+        <field name="name">produk_view_form</field>
+        <field name="model">tokokipin.produk</field>
+        <field name="arch" type="xml">
+            <form string="produk_form">
+                <sheet>
+                    <group>
+                        <field name="jenisbarang_id"/>
+                        <field name="nama_produk"/>
+                    </group>
+                    <notebook colspan='8'>
+                        <page name="produk" string="nama produk">
+                            <field name="barang_ids">
+                                <tree create="true" delete="true" edit="true" editable="bottom">
+                                    <field name="nama_barang"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="produk_action" model="ir.actions.act_window">
+        <field name="name">Produk</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tokokipin.produk</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="produk_categ"
+            name="Produk"
+            parent="produk_root"
+            action="produk_action"
+            sequence="20"/>
+</odoo>

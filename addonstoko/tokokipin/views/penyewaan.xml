@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="penyewaan_view_tree" model="ir.ui.view">
+        <field name="name">penyewaan_view_tree</field>
+        <field name="model">tokokipin.penyewaan</field>
+        <field name="arch" type="xml">
+            <tree string="penjualan_tree">
+<!--                <field name="no_notaids"/>-->
+<!--                <field name="membership"/>-->
+<!--                <field name="nama_member" attrs="{'invisible' : [('membership', '=' ,True)]}"/>-->
+<!--                <field name="pengguna" attrs="{'invisible' : [('membership', '=' ,False)]}"/>-->
+                <field name="nama_pembeli"/>
+<!--                <field name="id_member"/>-->
+                <field name="jk"/>
+                <field name="kode_pelanggan"/>
+                <field name="tgl_penyewaan"/>
+                <field name="tgl_pengembalian"/>
+                <field name="jml_hari"/>
+                <field name="status"/>
+                <field name="total_bayar"/>
+            </tree>
+        </field>
+    </record>
+    <record id="penyewaan_view_form" model="ir.ui.view">
+        <field name="name">penyewaan_view_form</field>
+        <field name="model">tokokipin.penyewaan</field>
+        <field name="arch" type="xml">
+            <form string="_form">
+                 <header>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn btn-primary" states="draft"/>
+                    <button name="action_done" type="object" string="Done" class="btn btn-primary" states="confirm"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn btn-warning" states="confirm" confirm="Anda yakin meng-cancel Quotation ini?"/>
+                    <button name="action_draft" type="object" string="Kembali ke Draft" class="btn btn-danger" states="cancelled" confirm="Anda yakin untuk mengedit Quotation ini?"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
+                 </header>
+                <sheet>
+                    <group>
+<!--                        <field name="no_notaids"/>-->
+<!--                        <field name="membership"/>-->
+<!--                        <field name="nama_member" attrs="{'invisible' : [('membership', '=' ,True)]}"/>-->
+<!--                        <field name="pengguna" attrs="{'invisible' : [('membership', '=' ,False)]}"/>-->
+                        <field name="nama_pembeli" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+<!--                        <field name="id_member" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>-->
+                        <field name="jk" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                        <field name="kode_pelanggan" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                        <field name="tgl_penyewaan" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                        <field name="tgl_pengembalian" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                        <field name="jml_hari" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                        <field name="status"/>
+                        <field name="total_bayar" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                    </group>
+                 <notebook colspan='8'>
+                        <page name="name" string="No Nota Pembayaran || Daftar Beli">
+                            <field name="no_notaids" attrs="{'readonly' : [('state', '!=', 'draft')]}">>
+                                <tree editable='bottom'>
+    <!--                                <field name="barang_ids"/>-->
+                                    <field name="kode_barang_ids"/>
+                                    <field name="nama_barangpenjualan"/>
+                                    <field name="banyak_barang"/>
+                                    <field name="jml_hari" />
+                                    <field name="subtotal" sum ="Total"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="penyewaan_action" model="ir.actions.act_window">
+        <field name="name">Penyewaan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tokokipin.penyewaan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="penyewaan_categ"
+              name="Penyewaan"
+              parent="tokokipin_root"
+              action="penyewaan_action"
+              sequence="30"/>
+</odoo>

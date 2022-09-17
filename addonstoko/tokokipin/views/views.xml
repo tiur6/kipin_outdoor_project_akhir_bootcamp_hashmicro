@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="tokokipin.list">
+      <field name="name">tokokipin list</field>
+      <field name="model">tokokipin.tokokipin</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="tokokipin.action_window">
+      <field name="name">tokokipin window</field>
+      <field name="res_model">tokokipin.tokokipin</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="tokokipin.action_server">
+      <field name="name">tokokipin server</field>
+      <field name="model_id" ref="model_tokokipin_tokokipin"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="tokokipin" id="tokokipin.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="tokokipin.menu_1" parent="tokokipin.menu_root"/>
+    <menuitem name="Menu 2" id="tokokipin.menu_2" parent="tokokipin.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="tokokipin.menu_1_list" parent="tokokipin.menu_1"
+              action="tokokipin.action_window"/>
+    <menuitem name="Server to list" id="tokokipin" parent="tokokipin.menu_2"
+              action="tokokipin.action_server"/>
+-->
+  </data>
+</odoo>

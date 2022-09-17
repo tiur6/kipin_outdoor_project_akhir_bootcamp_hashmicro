@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="report_tokokipin_penyewaan" model="ir.actions.report">
+        <field name="name">Report Penyewaan</field>
+        <field name="model">tokokipin.penyewaan</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tokokipin.report_tokokipin_penyewaan</field>
+        <field name="report_file">tokokipin.report_tokokipin_penyewaan</field>
+        <field name="binding_model_id" ref="model_tokokipin_penyewaan"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <record id="templet_action" model="ir.actions.act_window">-->
+<!--        <field name="name">Barang</field>-->
+<!--        <field name="type">ir.actions.act_window</field>-->
+<!--        <field name="res_model">tokokipin.templet</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+    <!-- This Menu Item must have a parent and an action -->
+<!--    <menuitem id="barang_categ"-->
+<!--              name="Barang"-->
+<!--              parent="tokokipin_root"-->
+<!--              action="templet_action"-->
+<!--              sequence="10"/>-->
+</odoo>
